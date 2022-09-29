@@ -20,6 +20,15 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <audio id="music" src="assets/audio/music-theme.mp3" autoplay loop></audio>
+
+  <audio id="effect-cave">
+    <source src="assets/audio/effect-cave.mp3">
+  </audio>
+
+  <button id="volume" active="not">
+    <img src="assets/images/volume-off.png" alt="Botão para silenciar música de fundo">
+  </button>
   
   <header id="page-initial">
     <div id="header-content" class="container">
@@ -34,10 +43,11 @@
   <div id="height-animation" class="page-display">
     <header id="page-secondary" class="page-display">
       <div id="header-content" class="container">
-        <p id="text-secondary-1" class="rotate-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus cum molestias rerum ipsum nobis eaque animi dicta, voluptatem obcaecati non esse sit, quos totam excepturi optio nemo blanditiis quia!</p>
-        <p id="text-secondary-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus cum molestias rerum ipsum nobis eaque animi dicta, voluptatem obcaecati non esse sit, quos totam excepturi optio nemo blanditiis quia!</p>
+        <p id="text-secondary-1" class="rotate-text text-scale">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus cum molestias rerum ipsum nobis eaque animi dicta, voluptatem obcaecati non esse sit, quos totam excepturi optio nemo blanditiis quia!</p>
+        <p id="text-secondary-2" class="text-scale-main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, repellendus cum molestias rerum ipsum nobis eaque animi dicta, voluptatem obcaecati non esse sit, quos totam excepturi optio nemo blanditiis quia!</p>
       </div>
     </header>
+    
   </div>
   <main class="page-display page-opacity">
     <img src="assets/images/cave.webp" alt="">

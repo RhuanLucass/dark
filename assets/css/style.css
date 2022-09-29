@@ -86,10 +86,23 @@ header#page-secondary::before{
   transition: 1s;
 }
 
+
+#text-secondary-1,
+#text-secondary-2{
+  transition: 3s;
+}
+
 .rotate-text{
   transform: rotateX(180deg) rotateY(180deg);
 }
 
+#text-secondary-1.text-scale{
+  transform: rotateX(180deg) rotateY(180deg) scale(.5);
+}
+
+#text-secondary-2.text-scale{
+  transform: scale(.5);
+}
 .rotate-page-secondary{
   animation: rotate-secondary 3s forwards;
   -webkit-animation: rotate-secondary 3s forwards;
@@ -116,7 +129,8 @@ header#page-secondary::before{
 
 
 #page-secondary #header-content{
-  justify-content: space-between;
+  justify-content: center;
+  gap: 40%;
   padding: 5% 0;
 }
 
@@ -166,7 +180,7 @@ header#page-secondary::before{
   justify-content: center;
 }
 
-#header-content button{
+#header-content button#switch-page{
   width: 230px;
   height: 50px;
   font-size: 1.5rem;
@@ -190,7 +204,7 @@ header#page-secondary::before{
   }
 }
 
-#header-content .button-content:hover > button{
+#header-content .button-content:hover > button#switch-page{
   background-color: #ffea047c;
   color: #000;
   transform: scale(1.1);
@@ -226,4 +240,26 @@ button span:nth-child(even) {
   100% {
     text-shadow: 0 0 40px whitesmoke;
   }
+}
+
+#volume{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 50px 50px 0;
+  transition: 1s;
+}
+
+#volume img{
+  font-size: 1.2rem;
+  color: white;
+  width: 20px;
+  height: 20px;
+  filter: invert(100);
 }

@@ -2,11 +2,29 @@ const body = document.body;
 const header = document.querySelector("header#page-initial");
 const headerSecondary = document.querySelector("header#page-secondary");
 const switchDisplay = document.querySelectorAll('.page-display');
-splitLetters();
+const main = document.querySelector('main');
+const divHeightAnimation = document.getElementById('height-animation');
+const opacity = document.querySelectorAll('.page-opacity');
+const textSecondary1 = document.getElementById('text-secondary-1');
+const textSecondary2 = document.getElementById('text-secondary-2');
+const music = document.getElementById('music');
+const volume = document.getElementById('volume');
+const effect = document.getElementById('effect-cave');
+var play = false;
+var scrolled = false;
+
+
 function travel() {
   body.classList.toggle("entry-effect");
+  
+  music.pause();
+  effect.volume = 1;
+  effect.play();
+  
   setTimeout(() => {
     body.classList.toggle("entry-effect");
+    music.src = "assets/audio/music-theme-2.mp3";
+    music.play();
     
     header.classList.add('page-display');
     headerSecondary.classList.remove('page-display');
@@ -22,6 +40,7 @@ function travel() {
   }, 1400);
 }
 
+splitLetters();
 function splitLetters() {
   const text = document.querySelector("#header-content p");
   const letters = text.innerHTML.split("");
@@ -87,15 +106,6 @@ function switchLogo() {
 }
 
 
-// 3s
-// Definir tamanho do header
-// rolar direto para o final
-// desativar fixed
-
-const main = document.querySelector('main');
-const divHeightAnimation = document.getElementById('height-animation');
-const opacity = document.querySelectorAll('.page-opacity');
-var scrolled = false;
 
 if(scrolled === false) 
 window.addEventListener('scroll', rotateHeader)
@@ -106,9 +116,10 @@ function rotateHeader(e){
   if(scrolled === false){
     scrolled = true;
     if(window.scrollY > 0){
-      window.scroll(0, 0)
+      window.scroll(0, 0);
       headerSecondary.classList.toggle('rotate-page-secondary');
-
+      // textSecondary1.classList.toggle('text-scale')
+      // textSecondary2.classList.toggle('text-scale')
       
       setTimeout(() => {
         headerSecondary.style.position = 'static';
@@ -120,29 +131,28 @@ function rotateHeader(e){
   }
 }
 
-// function smoothScrollTo(endX, endY, duration) {
-//   const startX = window.scrollX || window.pageXOffset;
-//   const startY = window.scrollY || window.pageYOffset;
-//   const distanceX = endX - startX;
-//   const distanceY = endY - startY;
-//   const startTime = new Date().getTime();
+body.addEventListener('click', playMusic)
+function playMusic(){
+  if(play === false){
+    music.play();
+    volume.setAttribute('active', 'yes');
+    switchVolume();
+    music.volume = 0.1;
+    play = true;
+  }
+}
 
-//   duration = typeof duration !== "undefined" ? duration : 400;
-
-//   // Easing function
-//   const easeInOutQuart = (time, from, distance, duration) => {
-//     if ((time /= duration / 2) < 1)
-//       return (distance / 2) * time * time * time * time + from;
-//     return (-distance / 2) * ((time -= 2) * time * time * time - 2) + from;
-//   };
-
-//   const timer = setInterval(() => {
-//     const time = new Date().getTime() - startTime;
-//     const newX = easeInOutQuart(time, startX, distanceX, duration);
-//     const newY = easeInOutQuart(time, startY, distanceY, duration);
-//     if (time >= duration) {
-//       clearInterval(timer);
-//     }
-//     window.scroll(newX, newY);
-//   }, 1000 / 60); // 60 fps
-// }
+volume.addEventListener('click', switchVolume);
+function switchVolume(){
+  const volumeIcon = volume.children[0];
+  
+  if(volume.getAttribute('active') === 'yes'){
+    volumeIcon.src = 'assets/images/volume-on.png';
+    music.play();
+    volume.setAttribute('active', 'not');
+  }else{
+    volumeIcon.src = 'assets/images/volume-off.png';
+    music.pause();
+    volume.setAttribute('active', 'yes');
+  }
+}
