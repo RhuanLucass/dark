@@ -104,8 +104,8 @@ header#secondary-page::before{
   transform: scale(.5);
 }
 .secondary-rotate-page{
-  animation: secondary-rotate 3s forwards;
-  -webkit-animation: secondary-rotate 3s forwards;
+  animation: secondary-rotate 3.3s forwards;
+  -webkit-animation: secondary-rotate 3.3s forwards;
 }
 
 @keyframes secondary-rotate {
@@ -262,4 +262,11 @@ button span:nth-child(even) {
   width: 20px;
   height: 20px;
   filter: invert(100);
+}
+
+
+
+iframe{
+  width: 90%;
+  height: 90vh;
 }
