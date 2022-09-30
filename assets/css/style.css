@@ -1,6 +1,6 @@
 :root{
   --background-initial: url("../images/cave.webp");
-  --background-secondary: url("../images/cave2.png");
+  --secondary-background: url("../images/cave2.png");
 }
 
 *{
@@ -67,7 +67,7 @@ header#page-initial::before{
   background-color: #000;
 }
 
-header#page-secondary{
+header#secondary-page{
   height: 100vh;
   overflow: hidden;
   position: fixed;
@@ -77,8 +77,8 @@ header#page-secondary{
   right: 0;
 }
 
-header#page-secondary::before{
-  background: var(--background-secondary);
+header#secondary-page::before{
+  background: var(--secondary-background);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -87,8 +87,8 @@ header#page-secondary::before{
 }
 
 
-#text-secondary-1,
-#text-secondary-2{
+#secondary-text-1,
+#secondary-text-2{
   transition: 3s;
 }
 
@@ -96,19 +96,19 @@ header#page-secondary::before{
   transform: rotateX(180deg) rotateY(180deg);
 }
 
-#text-secondary-1.text-scale{
+#secondary-text-1.text-scale{
   transform: rotateX(180deg) rotateY(180deg) scale(.5);
 }
 
-#text-secondary-2.text-scale{
+#secondary-text-2.text-scale{
   transform: scale(.5);
 }
-.rotate-page-secondary{
-  animation: rotate-secondary 3s forwards;
-  -webkit-animation: rotate-secondary 3s forwards;
+.secondary-rotate-page{
+  animation: secondary-rotate 3s forwards;
+  -webkit-animation: secondary-rotate 3s forwards;
 }
 
-@keyframes rotate-secondary {
+@keyframes secondary-rotate {
   0%{
     transform: rotate(0);
   }
@@ -128,7 +128,7 @@ header#page-secondary::before{
 }
 
 
-#page-secondary #header-content{
+#secondary-page #header-content{
   justify-content: center;
   gap: 40%;
   padding: 5% 0;

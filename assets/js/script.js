@@ -1,12 +1,12 @@
 const body = document.body;
 const header = document.querySelector("header#page-initial");
-const headerSecondary = document.querySelector("header#page-secondary");
+const headerSecondary = document.querySelector("header#secondary-page");
 const switchDisplay = document.querySelectorAll('.page-display');
 const main = document.querySelector('main');
 const divHeightAnimation = document.getElementById('height-animation');
 const opacity = document.querySelectorAll('.page-opacity');
-const textSecondary1 = document.getElementById('text-secondary-1');
-const textSecondary2 = document.getElementById('text-secondary-2');
+const textSecondary1 = document.getElementById('secondary-text-1');
+const textSecondary2 = document.getElementById('secondary-text-2');
 const music = document.getElementById('music');
 const volume = document.getElementById('volume');
 const effect = document.getElementById('effect-cave');
@@ -117,7 +117,7 @@ function rotateHeader(e){
     scrolled = true;
     if(window.scrollY > 0){
       window.scroll(0, 0);
-      headerSecondary.classList.toggle('rotate-page-secondary');
+      headerSecondary.classList.toggle('secondary-rotate-page');
       // textSecondary1.classList.toggle('text-scale')
       // textSecondary2.classList.toggle('text-scale')
       
