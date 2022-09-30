@@ -1,15 +1,16 @@
 const body = document.body;
 const header = document.querySelector("header#page-initial");
-const headerSecondary = document.querySelector("header#page-secondary");
+const headerSecondary = document.querySelector("header#secondary-page");
 const switchDisplay = document.querySelectorAll('.page-display');
 const main = document.querySelector('main');
 const divHeightAnimation = document.getElementById('height-animation');
 const opacity = document.querySelectorAll('.page-opacity');
-const textSecondary1 = document.getElementById('text-secondary-1');
-const textSecondary2 = document.getElementById('text-secondary-2');
+const textSecondary1 = document.getElementById('secondary-text-1');
+const textSecondary2 = document.getElementById('secondary-text-2');
 const music = document.getElementById('music');
 const volume = document.getElementById('volume');
-const effect = document.getElementById('effect-cave');
+const effectCave = document.getElementById('effect-cave');
+const effectRotate = document.getElementById('effect-rotate');
 var play = false;
 var scrolled = false;
 
@@ -18,8 +19,8 @@ function travel() {
   body.classList.toggle("entry-effect");
   
   music.pause();
-  effect.volume = 1;
-  effect.play();
+  effectCave.volume = 1;
+  effectCave.play();
   
   setTimeout(() => {
     body.classList.toggle("entry-effect");
@@ -105,10 +106,10 @@ function switchLogo() {
   }
 }
 
-
-
-if(scrolled === false) 
-window.addEventListener('scroll', rotateHeader)
+rotateWithScroll()
+function rotateWithScroll(){
+  if(scrolled === false) window.addEventListener('scroll', rotateHeader);
+}
 
 function rotateHeader(e){
   e.preventDefault();
@@ -117,9 +118,12 @@ function rotateHeader(e){
     scrolled = true;
     if(window.scrollY > 0){
       window.scroll(0, 0);
-      headerSecondary.classList.toggle('rotate-page-secondary');
-      // textSecondary1.classList.toggle('text-scale')
-      // textSecondary2.classList.toggle('text-scale')
+      headerSecondary.classList.toggle('secondary-rotate-page');
+      textSecondary1.classList.toggle('text-scale');
+      textSecondary2.classList.toggle('text-scale');
+
+      effectRotate.volume = 1;
+      effectRotate.play();
       
       setTimeout(() => {
         headerSecondary.style.position = 'static';
