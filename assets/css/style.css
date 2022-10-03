@@ -3,6 +3,10 @@
   --secondary-background: url("../images/cave2.png");
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -263,8 +267,6 @@ button span:nth-child(even) {
   height: 20px;
   filter: invert(100);
 }
-
-
 
 iframe{
   width: 90%;
