@@ -1,10 +1,9 @@
 :root{
   --background-initial: url("../images/cave.webp");
   --secondary-background: url("../images/cave2.png");
-}
+  --background-years: url('../images/cave3.png');
+  --symbol-years: url('../images/symbol.png');
 
-::-webkit-scrollbar {
-  width: 0px;
 }
 
 *{
@@ -12,18 +11,49 @@
   padding: 0;
   outline: none;
   box-sizing: border-box;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 body{
   transition: 2s;
   overflow: hidden;
   background-color: #000;
+  font-family: 'Darker Grotesque', sans-serif;
+
 }
 
 .container{
   max-width: 1280px;
   padding: 0 2%;
   margin: 0 auto;
+}
+
+#header-content{
+  height: 100%;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#header-content #logo-dark{
+  max-width: 450px;
+  mix-blend-mode: screen;
+  transition: 1s;
+} 
+
+#header-content p{
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 3px 3px 3px black;
+  max-width: 650px;
+  z-index: 2;
 }
 
 .page-display{
@@ -39,13 +69,31 @@ body{
   filter: brightness(0);
 }
 
+#volume{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 1s;
+}
+
+#volume img{
+  font-size: 1.2rem;
+  color: white;
+  width: 25px;
+  height: 25px;
+  filter: invert(100);
+}
+
 /* HEADER */
 
 header{
   width: 100%;
   height: 100vh;
   position: relative;
-  user-select: none;
 }
 
 header::before{
@@ -71,6 +119,8 @@ header#page-initial::before{
   background-color: #000;
 }
 
+/* SECONDARY HEADER */
+
 header#secondary-page{
   height: 100vh;
   overflow: hidden;
@@ -89,7 +139,6 @@ header#secondary-page::before{
   filter: brightness(0.8) blur(4px);
   transition: 1s;
 }
-
 
 #secondary-text-1,
 #secondary-text-2{
@@ -112,45 +161,10 @@ header#secondary-page::before{
   -webkit-animation: secondary-rotate 3.3s forwards;
 }
 
-@keyframes secondary-rotate {
-  0%{
-    transform: rotate(0);
-  }
-  100%{
-    transform: rotate(180deg);
-  }
-}
-
-#header-content{
-  height: 100%;
-  display: flex;
-  gap: 50px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
 #secondary-page #header-content{
   justify-content: center;
   gap: 40%;
   padding: 5% 0;
-}
-
-#header-content img{
-  max-width: 450px;
-  mix-blend-mode: screen;
-  transition: 1s;
-} 
-
-#header-content p{
-  color: white;
-  font-size: 1.5rem;
-  text-shadow: 3px 3px 3px black;
-  max-width: 650px;
-  font-family: 'Darker Grotesque', sans-serif;
-  z-index: 2;
 }
 
 .word{
@@ -163,16 +177,6 @@ header#secondary-page::before{
 
 .invert-letter{
   animation: flip 7s;
-}
-
-@keyframes flip {
-  0%, 100%{
-    transform: rotateY(0);
-  }
-
-  50%{
-  transform: rotateY(-180deg);
-  }
 }
 
 #header-content .button-content {
@@ -199,15 +203,6 @@ header#secondary-page::before{
   animation: opacity-button 5s;
 }
 
-@keyframes opacity-button{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 100%;
-  }
-}
-
 #header-content .button-content:hover > button#switch-page{
   background-color: #ffea047c;
   color: #000;
@@ -222,6 +217,130 @@ button span {
 
 button span:nth-child(even) {
 	animation-name: smoky-mirror;
+}
+
+
+/* MAIN */
+
+  /* sECTION YEARS */
+section#section-years{
+  width: 100%;
+  height: 100vh;
+}
+
+section#section-years::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: var(--background-years);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  filter: brightness(0.9) blur(4px);
+  transition: .5s;
+}
+
+.y-2019{
+  --background-years: url('../images/2019.jpg');
+  --symbol-years: url('../images/symbol-2019.png');
+  transition: .5s;
+}
+
+.y-1986{
+  --background-years: url('../images/1986.jpg');
+  --symbol-years: url('../images/symbol-1986.png');
+  transition: .5s;
+}
+
+.y-1953{
+  --background-years: url('../images/1953.jpg');
+  --symbol-years: url('../images/symbol-1953.png');
+  transition: .5s;
+}
+
+#section-years #header-content{
+  gap:0;
+}
+
+#section-years h2#text-years{
+  color: #fff;
+  font-size: 2rem;
+  padding: 50px 0;
+  position: absolute;
+  top: 0;
+}
+
+#section-years #symbol-years{
+  position: relative;
+}
+
+#section-years #symbol-years img{
+  width: 100%;
+  max-width: 350px;
+  transition: .7s;
+}
+
+#section-years #symbol-years button{
+  width: 28vw;
+  height: 28vw;
+  max-width: 100px;
+  max-height: 100px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+#section-years #symbol-years button#year-2019{
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+}
+
+#section-years #symbol-years button#year-1986{
+  top: 59%;
+  left: 59%;
+}
+
+#section-years #symbol-years button#year-1953{
+  top: 60%;
+  left: 11%;
+}
+
+
+
+
+
+/* KEYFRAMES */
+
+@keyframes secondary-rotate {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes flip {
+  0%, 100%{
+    transform: rotateY(0);
+  }
+
+  50%{
+  transform: rotateY(-180deg);
+  }
+}
+
+@keyframes opacity-button{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 100%;
+  }
 }
 
 @keyframes smoky {
@@ -244,31 +363,4 @@ button span:nth-child(even) {
   100% {
     text-shadow: 0 0 40px whitesmoke;
   }
-}
-
-#volume{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0 50px 50px 0;
-  transition: 1s;
-}
-
-#volume img{
-  font-size: 1.2rem;
-  color: white;
-  width: 20px;
-  height: 20px;
-  filter: invert(100);
-}
-
-iframe{
-  width: 90%;
-  height: 90vh;
 }

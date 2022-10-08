@@ -22,12 +22,12 @@
   <audio id="effect-rotate" src="assets/audio/effect-rotate.mp3"></audio>
 
   <button id="volume" active="not">
-    <img src="assets/images/volume-off.png" alt="Botão para silenciar música de fundo">
+    <img src="assets/images/volume-off.png" alt="Botão para silenciar música de fundo" draggable="false">
   </button>
   
-  <header id="page-initial">
+  <header id="page-initial" class="page-display page-opacity">
     <div id="header-content" class="container">
-      <img src="assets/images/dark-logo.jpg" alt="Imagem principal representando a série Dark." draggable="false">
+      <img id="logo-dark" src="assets/images/dark-logo.jpg" alt="Imagem principal representando a série Dark." draggable="false">
       <p id="text" role="text">Quatro famílias iniciam uma desesperada busca por respostas quando uma criança desaparece e um complexo mistério envolvendo três gerações começa a se revelar.</p>
       <div class="button-content">
         <button id="switch-page" onclick="travel()"><span>E</span><span>n</span><span>t</span><span>r</span><span>a</span><span>r</span><span>&nbsp;</span><span>n</span><span>a</span><span>&nbsp;</span><span>c</span><span>a</span><span>v</span><span>e</span><span>r</span><span>n</span><span>a</span></button>
@@ -35,7 +35,7 @@
     </div>
   </header>
 
-  <div id="height-animation" class="page-display">
+  <div id="height-animation" class="page-display page-opacity">
     <header id="secondary-page" class="page-display">
       <div id="header-content" class="container">
         <p id="secondary-text-1" class="rotate-text text-scale">
@@ -49,10 +49,20 @@
     </header>
     
   </div>
-  <main class="page-display page-opacity">
-    section#
+  <main>
+    <section id="section-years">
+      <div id="header-content" class="container">
+        <h2 id="text-years">Viaje no tempo</h2>
+        <div id="symbol-years">
+          <img id="img-symbol" src="assets/images/symbol.png" alt="Triquetra - símbolo da série Dark" draggable="false">
+          <button id="year-2019"></button>
+          <button id="year-1986"></button>
+          <button id="year-1953"></button>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="page-display page-opacity">aaaaaaa</footer>
+  <!-- <footer class="page-display page-opacity">aaaaaaa</footer> -->
   <script src="assets/js/script.js"></script>
 </body>
 </html>

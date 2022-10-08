@@ -11,8 +11,8 @@ const music = document.getElementById('music');
 const volume = document.getElementById('volume');
 const effectCave = document.getElementById('effect-cave');
 const effectRotate = document.getElementById('effect-rotate');
-var play = false;
-var scrolled = false;
+let play = false;
+let scrolled = false;
 
 
 function travel() {
@@ -53,7 +53,7 @@ function splitLetters() {
       : (text.innerHTML += "  ");
   });
 
-  var vetWords = text.innerHTML.split("  ");
+  let vetWords = text.innerHTML.split("  ");
   text.innerHTML = "";
   vetWords.forEach((word) => {
     text.innerHTML += `<div class="word">${word}</div>`;
@@ -70,7 +70,7 @@ function splitLetters() {
 
 function invertLetters(letters) {
   try {
-    var random = getVectorRandom(letters);
+    let random = getVectorRandom(letters);
 
     random.forEach((number) => letters[number].classList.add("invert-letter"));
 
@@ -87,7 +87,7 @@ function getRandomInt(min, max) {
 }
 
 function getVectorRandom(letters) {
-  var random = [];
+  let random = [];
   for (let i = 0; i < parseInt(letters.length / 5); i++) {
     random[i] = getRandomInt(0, letters.length);
   }
@@ -159,4 +159,37 @@ function switchVolume(){
     music.pause();
     volume.setAttribute('active', 'yes');
   }
+}
+
+const yearsSymbol = document.querySelectorAll('#section-years #symbol-years button');
+const  imgSymbol = document.getElementById('img-symbol');
+
+yearsSymbol.forEach(year => year.addEventListener('mouseover', hoverYears));
+yearsSymbol.forEach(year => year.addEventListener('mouseout', outYears));
+
+
+function hoverYears(){
+  if(this.id === 'year-2019'){
+    document.getElementById('section-years').classList.add('y-2019');
+    imgSymbol.style.transform = 'rotate3d(1, 0, 0, 30deg)';
+  }else if(this.id === 'year-1986'){
+    document.getElementById('section-years').classList.add('y-1986');
+    imgSymbol.style.transform = 'rotate3d(1, -1, 0, 30deg)';
+  }else if(this.id === 'year-1953'){
+    document.getElementById('section-years').classList.add('y-1953');
+    imgSymbol.style.transform = 'rotate3d(1, 1, 0, 30deg)';
+  }
+}
+
+function outYears(){
+  imgSymbol.style.transform = 'rotate3d(0, 0, 0, 0)';
+  setTimeout(() => {
+    if(this.id === 'year-2019'){
+      document.getElementById('section-years').classList.remove('y-2019');
+    }else if(this.id === 'year-1986'){
+      document.getElementById('section-years').classList.remove('y-1986');
+    }else if(this.id === 'year-1953'){
+      document.getElementById('section-years').classList.remove('y-1953');
+    }
+  }, 300);
 }
