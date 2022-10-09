@@ -10,7 +10,9 @@ const textSecondary2 = document.getElementById('secondary-text-2');
 const music = document.getElementById('music');
 const volume = document.getElementById('volume');
 const effectCave = document.getElementById('effect-cave');
+const effectWind = document.getElementById('effect-wind');
 const effectRotate = document.getElementById('effect-rotate');
+const sectionYears = document.getElementById('section-years');
 let play = false;
 let scrolled = false;
 
@@ -166,17 +168,18 @@ const  imgSymbol = document.getElementById('img-symbol');
 
 yearsSymbol.forEach(year => year.addEventListener('mouseover', hoverYears));
 yearsSymbol.forEach(year => year.addEventListener('mouseout', outYears));
+yearsSymbol.forEach(year => year.addEventListener('click', clickYears));
 
 
 function hoverYears(){
   if(this.id === 'year-2019'){
-    document.getElementById('section-years').classList.add('y-2019');
+    sectionYears.classList.add('y-2019');
     imgSymbol.style.transform = 'rotate3d(1, 0, 0, 30deg)';
   }else if(this.id === 'year-1986'){
-    document.getElementById('section-years').classList.add('y-1986');
+    sectionYears.classList.add('y-1986');
     imgSymbol.style.transform = 'rotate3d(1, -1, 0, 30deg)';
   }else if(this.id === 'year-1953'){
-    document.getElementById('section-years').classList.add('y-1953');
+    sectionYears.classList.add('y-1953');
     imgSymbol.style.transform = 'rotate3d(1, 1, 0, 30deg)';
   }
 }
@@ -185,11 +188,36 @@ function outYears(){
   imgSymbol.style.transform = 'rotate3d(0, 0, 0, 0)';
   setTimeout(() => {
     if(this.id === 'year-2019'){
-      document.getElementById('section-years').classList.remove('y-2019');
+      sectionYears.classList.remove('y-2019');
     }else if(this.id === 'year-1986'){
-      document.getElementById('section-years').classList.remove('y-1986');
+      sectionYears.classList.remove('y-1986');
     }else if(this.id === 'year-1953'){
-      document.getElementById('section-years').classList.remove('y-1953');
+      sectionYears.classList.remove('y-1953');
     }
   }, 300);
+}
+
+const cube =  document.querySelector('.cube');
+
+
+function clickYears(){
+  effectWind.volume = 1;
+  effectWind.play();
+  imgSymbol.style.animation = 'rotate-symbol 5s';
+  setTimeout(() => {
+    if(this.id === 'year-2019'){
+      sectionYears.classList.add('face-front-top');
+      cube.style.transform = 'rotateX(-90deg)';
+    }else if(this.id === 'year-1986'){
+      if(sectionYears.classList.contains('face-front-top')){
+        sectionYears.classList.remove('face-front-top');
+      }
+      cube.style.transform = 'rotateY(-90deg)';
+    }else if(this.id === 'year-1953'){
+      if(sectionYears.classList.contains('face-front-top')){
+        sectionYears.classList.remove('face-front-top');
+      }
+      cube.style.transform = 'rotateY(90deg)';
+    }
+  }, 1000);
 }
