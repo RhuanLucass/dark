@@ -20,7 +20,7 @@
 
 body{
   transition: 2s;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-color: #000;
   font-family: 'Darker Grotesque', sans-serif;
 
@@ -251,19 +251,16 @@ section#section-years::before{
 
 .y-2019{
   --background-years: url('../images/2019.jpg');
-  --symbol-years: url('../images/symbol-2019.png');
   transition: .5s;
 }
 
 .y-1986{
   --background-years: url('../images/1986.jpg');
-  --symbol-years: url('../images/symbol-1986.png');
   transition: .5s;
 }
 
 .y-1953{
   --background-years: url('../images/1953.jpg');
-  --symbol-years: url('../images/symbol-1953.png');
   transition: .5s;
 }
 
@@ -347,29 +344,62 @@ section.section-generic #header-content{
   gap: 20px;
 }
 
+.section-generic .arrow{
+  width: 100%;
+  max-width: 50px;
+  z-index: 100;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: .5s;
+  top: 50%;
+  right: 0;
+  margin: 2%;
+  transform: translate(0, -50%);
+  opacity: 0;
+  transition: 2s;
+  transition-delay: 4s;
+}
+
+.section-generic .arrow.arrow-animation{
+  opacity: 1;
+}
+
+.section-generic .arrow:hover{
+  background-color: rgba(255, 255, 255, 0.288);
+}
+
+.section-generic #arrow-1953{
+  transform: translate(0, -50%) rotate(-90deg);
+}
+
+.section-generic #arrow-1986{
+  transform: translate(0, -50%) rotate(90deg);
+}
+
 /* FACES */
 .face{
   position: absolute;
 }
 
 .face-front {
-  transform: translateZ(49vw);
+  transform: translateZ(50vw);
 }
 
 .face-front-top {
-  transform: translateZ(49vh);
+  transform: translateZ(50vh);
 }
 
 .face-right{
-  transform: rotateY(90deg) translateZ(51vw);
+  transform: rotateY(90deg) translateZ(49vw);
 }
 
 .face-top{
-  transform: rotateX(90deg) translateZ(50vh);
+  transform: rotateX(90deg) translateZ(49vh);
 }
 
 .face-left{
-  transform: rotateY(-90deg) translateZ(51vw);
+  transform: rotateY(-90deg) translateZ(49vw);
 }
 
 .cube {
@@ -434,6 +464,6 @@ section.section-generic #header-content{
     transform: rotate(0);
   }
   100%{
-    transform: rotate(10000deg);
+    transform: rotate(10800deg);
   }
 }

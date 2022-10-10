@@ -165,6 +165,7 @@ function switchVolume(){
 
 const yearsSymbol = document.querySelectorAll('#section-years #symbol-years button');
 const  imgSymbol = document.getElementById('img-symbol');
+let click = false;
 
 yearsSymbol.forEach(year => year.addEventListener('mouseover', hoverYears));
 yearsSymbol.forEach(year => year.addEventListener('mouseout', outYears));
@@ -172,52 +173,89 @@ yearsSymbol.forEach(year => year.addEventListener('click', clickYears));
 
 
 function hoverYears(){
-  if(this.id === 'year-2019'){
-    sectionYears.classList.add('y-2019');
-    imgSymbol.style.transform = 'rotate3d(1, 0, 0, 30deg)';
-  }else if(this.id === 'year-1986'){
-    sectionYears.classList.add('y-1986');
-    imgSymbol.style.transform = 'rotate3d(1, -1, 0, 30deg)';
-  }else if(this.id === 'year-1953'){
-    sectionYears.classList.add('y-1953');
-    imgSymbol.style.transform = 'rotate3d(1, 1, 0, 30deg)';
+  if(click === false){
+    if(this.id === 'year-2019'){
+      sectionYears.classList.add('y-2019');
+      imgSymbol.style.transform = 'rotate3d(1, 0, 0, 30deg)';
+    }else if(this.id === 'year-1986'){
+      sectionYears.classList.add('y-1986');
+      imgSymbol.style.transform = 'rotate3d(1, -1, 0, 30deg)';
+    }else if(this.id === 'year-1953'){
+      sectionYears.classList.add('y-1953');
+      imgSymbol.style.transform = 'rotate3d(1, 1, 0, 30deg)';
+    }   
   }
 }
 
 function outYears(){
+  if(click === false){
   imgSymbol.style.transform = 'rotate3d(0, 0, 0, 0)';
   setTimeout(() => {
-    if(this.id === 'year-2019'){
-      sectionYears.classList.remove('y-2019');
-    }else if(this.id === 'year-1986'){
-      sectionYears.classList.remove('y-1986');
-    }else if(this.id === 'year-1953'){
-      sectionYears.classList.remove('y-1953');
-    }
-  }, 300);
+      if(this.id === 'year-2019'){
+        sectionYears.classList.remove('y-2019');
+      }else if(this.id === 'year-1986'){
+        sectionYears.classList.remove('y-1986');
+      }else if(this.id === 'year-1953'){
+        sectionYears.classList.remove('y-1953');
+      }
+    }, 300);
+  }
 }
 
 const cube =  document.querySelector('.cube');
-
-
+let arrowAnimation;
 function clickYears(){
+  click = true;
   effectWind.volume = 1;
   effectWind.play();
-  imgSymbol.style.animation = 'rotate-symbol 5s';
+  imgSymbol.style.animation = 'rotate-symbol 5s forwards';
+  yearsSymbol.disabled = true;
+  let idArrow = this.id;
+  let subArrow = idArrow.substr(5);
+  arrowAnimation = document.getElementById('arrow-'+subArrow);
+  arrowAnimation.classList.add('arrow-animation');
   setTimeout(() => {
     if(this.id === 'year-2019'){
+      sectionYears.classList.add('y-2019');
       sectionYears.classList.add('face-front-top');
       cube.style.transform = 'rotateX(-90deg)';
     }else if(this.id === 'year-1986'){
       if(sectionYears.classList.contains('face-front-top')){
         sectionYears.classList.remove('face-front-top');
       }
+      sectionYears.classList.add('y-1986');
       cube.style.transform = 'rotateY(-90deg)';
     }else if(this.id === 'year-1953'){
       if(sectionYears.classList.contains('face-front-top')){
         sectionYears.classList.remove('face-front-top');
       }
+      sectionYears.classList.add('y-1953');
       cube.style.transform = 'rotateY(90deg)';
     }
   }, 1000);
+
+  setTimeout(() => {
+    sectionYears.classList.remove('y-2019');
+    sectionYears.classList.remove('y-1986');
+    sectionYears.classList.remove('y-1953');
+    imgSymbol.style.animation = 'none';
+    yearsSymbol.disabled = false;
+    click = false;
+  }, 5000);
+}
+
+const arrows = document.querySelectorAll('.arrow');
+arrows.forEach(arrow => arrow.addEventListener('click', arrowBack));
+
+function arrowBack(){
+  imgSymbol.style.transform = 'rotate3d(0, 0, 0, 0)';
+  cube.style.transform = 'rotateX(0)';
+  imgSymbol.style.animation = 'rotate-symbol 5s forwards';
+  effectWind.volume = 1;
+  effectWind.play();
+  arrowAnimation.classList.remove('arrow-animation');
+
+  setTimeout(() => {
+    imgSymbol.style.animation = 'none';
+  }, 5000);
 }
