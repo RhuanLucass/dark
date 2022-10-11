@@ -213,6 +213,7 @@ function clickYears(){
   let idArrow = this.id;
   let subArrow = idArrow.substr(5);
   arrowAnimation = document.getElementById('arrow-'+subArrow);
+  // body.style.overflowY = 'hidden';
   arrowAnimation.classList.add('arrow-animation');
   setTimeout(() => {
     if(this.id === 'year-2019'){
@@ -254,6 +255,7 @@ function arrowBack(){
   effectWind.volume = 1;
   effectWind.play();
   arrowAnimation.classList.remove('arrow-animation');
+  // body.style.overflowY = 'auto';
 
   setTimeout(() => {
     imgSymbol.style.animation = 'none';

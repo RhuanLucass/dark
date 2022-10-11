@@ -59,7 +59,7 @@ h2{
   font-size: 1.5rem;
   text-shadow: 3px 3px 3px black;
   max-width: 650px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .page-display{
@@ -136,6 +136,7 @@ header#secondary-page{
   left: 0;
   bottom: 0;
   right: 0;
+  z-index: 10;
 }
 
 header#secondary-page::before{
@@ -313,7 +314,7 @@ section#section-years::before{
 }
 
 /* SIDE-2019 */
-.section-generic{
+.section-face{
   width: 100%;
   height: 100vh;
 }
@@ -328,7 +329,7 @@ section#side-1986::before{
   background-image: url('../images/helgue.jpg');
 }
 
-.section-generic::before{
+.section-face::before{
   content: "";
   width: 100%;
   height: 100%;
@@ -340,11 +341,11 @@ section#side-1986::before{
   transition: .5s;
 }
 
-section.section-generic #header-content{
+section.section-face #header-content{
   gap: 20px;
 }
 
-.section-generic .arrow{
+.section-face .arrow{
   width: 100%;
   max-width: 50px;
   z-index: 100;
@@ -361,19 +362,19 @@ section.section-generic #header-content{
   transition-delay: 4s;
 }
 
-.section-generic .arrow.arrow-animation{
+.section-face .arrow.arrow-animation{
   opacity: 1;
 }
 
-.section-generic .arrow:hover{
+.section-face .arrow:hover{
   background-color: rgba(255, 255, 255, 0.288);
 }
 
-.section-generic #arrow-1953{
+.section-face #arrow-1953{
   transform: translate(0, -50%) rotate(-90deg);
 }
 
-.section-generic #arrow-1986{
+.section-face #arrow-1986{
   transform: translate(0, -50%) rotate(90deg);
 }
 
