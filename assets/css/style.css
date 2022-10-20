@@ -1,7 +1,7 @@
 :root {
-  --background-initial: url("../images/backgrounds/cave.webp");
-  --secondary-background: url("../images/backgrounds/cave2.png");
-  --background-years: url("../images/backgrounds/cave3.png");
+  --background-initial: url("../images/backgrounds/cave.jpeg");
+  --secondary-background: url("../images/backgrounds/cave2.jpeg");
+  --background-years: url("../images/backgrounds/cave3.jpeg");
   --symbol-years: url("../images/logo/symbol.png");
   --background-black: #000;
   --font-color-black: #000;
@@ -257,17 +257,17 @@ section#section-years::before {
 }
 
 .y-2019 {
-  --background-years: url("../images/backgrounds/2019.jpg");
+  --background-years: url("../images/backgrounds/2019.jpeg");
   transition: 0.5s;
 }
 
 .y-1986 {
-  --background-years: url("../images/backgrounds/1986.jpg");
+  --background-years: url("../images/backgrounds/1986.jpeg");
   transition: 0.5s;
 }
 
 .y-1953 {
-  --background-years: url("../images/backgrounds/1953.jpg");
+  --background-years: url("../images/backgrounds/1953.jpeg");
   transition: 0.5s;
 }
 
@@ -326,13 +326,13 @@ section#section-years::before {
 }
 
 section#side-2019::before {
-  background-image: url("../images/backgrounds/letter.jpg");
+  background-image: url("../images/backgrounds/letter.jpeg");
 }
 section#side-1953::before {
-  background-image: url("../images/backgrounds/agnes.jpg");
+  background-image: url("../images/backgrounds/agnes.jpeg");
 }
 section#side-1986::before {
-  background-image: url("../images/backgrounds/helgue.jpg");
+  background-image: url("../images/backgrounds/helgue.jpeg");
 }
 
 .section-face::before {

@@ -116,10 +116,10 @@ image.addEventListener("mouseover", switchLogo);
 image.addEventListener("mouseout", switchLogo);
 
 function switchLogo() {
-  if (image.getAttribute("src") === "assets/images/logo/dark-logo-invert.jpg") {
-    image.src = "assets/images/logo/dark-logo.jpg";
-  } else if (image.getAttribute("src") === "assets/images/logo/dark-logo.jpg") {
-    image.src = "assets/images/logo/dark-logo-invert.jpg";
+  if (image.getAttribute("src") === "assets/images/logo/dark-logo-invert.jpeg") {
+    image.src = "assets/images/logo/dark-logo.jpeg";
+  } else if (image.getAttribute("src") === "assets/images/logo/dark-logo.jpeg") {
+    image.src = "assets/images/logo/dark-logo-invert.jpeg";
   }
 }
 
@@ -174,7 +174,7 @@ function playMusic(e) {
 }
 
 function playAudio(audio) {
-  audio.volume = 0.1;
+  audio.volume = 1;
   audio.play();
 }
 
